@@ -9,10 +9,10 @@
         name: python3
         state: latest 
 
-    - name: Install device-mapper-persistent-data
+    - name: Install python3-pip
       apt:
-        name: device-mapper-persistent-data
-        state: latest
+        name: python3-pip
+        state: latest 
 
     - name: Install iptables
       apt:
@@ -20,7 +20,7 @@
         state: latest
 
     - name: Install lvm2
-      apt:
+      apt:pip 
         name: lvm2
         state: latest  
 
@@ -47,9 +47,9 @@
         enabled: yes
       become: yes
 
-    - name: Add user ec2-user to docker group
+    - name: Add user ubuntu to docker group
       user:
-        name: ec2-user
+        name: ubuntu
         groups: docker
         append: yes
       become: yes
