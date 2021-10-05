@@ -46,9 +46,7 @@
 
 
 
-    - name: Addkey
-      command: curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
-
+    
 
     - name: Install Docker
       package:
