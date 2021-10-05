@@ -15,7 +15,7 @@
         state: latest
 
     - name: Install lvm2
-      apt: pip 
+      apt: 
         name: lvm2
         state: latest  
 
