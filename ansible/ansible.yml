@@ -34,10 +34,12 @@
     - name: Set up the repository
       apt: 
         name: curl
+
     - name: Set up the repository
       apt: 
         name: gnupg
-      - name: Set up the repository
+
+    - name: Set up the repository
       apt: 
         name: lsb-release
 
