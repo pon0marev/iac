@@ -21,17 +21,19 @@
     - name: Install lvm2
       apt: 
         name: lvm2
-        state: latest  
+        state: latest 
 
-    - name: Add Docker repo
-      get_url:
-        url: https://download.docker.com/linux/centos/docker-ce.repo
-        dest: /etc/apt.repos.d/docer-ce.repo
-      become: yes
+    - name: Set up the repository
+      apt: 
+        name: apt-transport-https ca-certificates curl gnupg lsb-release
+
+    - name: Addkey
+      command: curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
+
 
     - name: Install Docker
       package:
-        name: docker-ce
+        name: docker-ce docker-ce-cli containerd.io
         state: latest
       become: yes
 
