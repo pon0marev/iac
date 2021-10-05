@@ -8,6 +8,10 @@
       apt:
         name: python
         state: latest 
+        force: yes
+        force_apt_get: yes
+        update_cache: yes
+
 
     - name: Install iptables
       apt:
