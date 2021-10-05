@@ -4,8 +4,8 @@
   become: yes
 
   tasks:
-    - apt: Install python3
-      yum:
+    - name: Install python3
+      apt:
         name: python3
         state: latest 
 
@@ -31,7 +31,7 @@
     - name: Add Docker repo
       get_url:
         url: https://download.docker.com/linux/centos/docker-ce.repo
-        dest: /etc/yum.repos.d/docer-ce.repo
+        dest: /etc/apt.repos.d/docer-ce.repo
       become: yes
 
     - name: Install Docker
