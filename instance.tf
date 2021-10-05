@@ -16,13 +16,13 @@ data "aws_ami" "ubuntu" {
 
 resource "aws_instance" "web" {
   ami           = data.aws_ami.ubuntu.id
-  instance_type = "t2.micro"
+  instance_type = "t3.micro"
+
+  key_name = "ponomar"
 
   subnet_id = aws_subnet.ponomar-subnet-public-3.id
 
   vpc_security_group_ids = [aws_security_group.ponomar-all.id]
-
-  key_name = "ponomar"
 
   tags = {
     Name = "Course"
