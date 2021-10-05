@@ -4,19 +4,23 @@
   become: yes
 
   tasks:
-    
+    - apt-get: Install python3
+      yum:
+        name: python3
+        state: latest 
+
     - name: Install device-mapper-persistent-data
       apt:
         name: device-mapper-persistent-data
         state: latest
 
     - name: Install iptables
-      yum:
+      apt:
         name: iptables
         state: latest
 
     - name: Install lvm2
-      yum:
+      apt:
         name: lvm2
         state: latest  
 
