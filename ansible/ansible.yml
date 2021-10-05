@@ -25,7 +25,7 @@
 
     - name: Set up the repository
       apt: 
-        name: apt-transport-https ca-certificates curl gnupg lsb-release
+        name: apt-transport-https
 
     - name: Set up the repository
       apt: 
