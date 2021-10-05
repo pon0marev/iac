@@ -25,32 +25,29 @@
 
     - name: Set up the repository
       apt: 
-        name: apt-transport-https
-
-    - name: Set up the repository
-      apt: 
-        name: ca-certificates
-
-    - name: Set up the repository
-      apt: 
-        name: curl
-
-    - name: Set up the repository
-      apt: 
-        name: gnupg
-
-    - name: Set up the repository
-      apt: 
-        name: lsb-release
+        name: 
+          - apt-transport-https
+          - ca-certificates
+          - curl
+          - gnupg
+          - lsb-release
 
 
 
+    - name: Add Docker’s GPG key and set up stable repository
+      shell:
+        cmd: |
+          curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+          sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
 
     
 
     - name: Install Docker
       package:
-        name: docker-ce
+        name: 
+          - docker-ce
+          - docker-ce-cli
+          - containerd.io
         state: latest
       become: yes
 
