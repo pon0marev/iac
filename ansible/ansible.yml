@@ -36,7 +36,7 @@
         name: curl
     - name: Set up the repository
       apt: 
-        name: gnupg lsb-release
+        name: gnupg
       - name: Set up the repository
       apt: 
         name: lsb-release
@@ -50,7 +50,7 @@
 
     - name: Install Docker
       package:
-        name: docker-ce docker-ce-cli containerd.io
+        name: docker-ce
         state: latest
       become: yes
 
