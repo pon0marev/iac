@@ -4,20 +4,13 @@
   become: yes
 
   tasks:
-    - name: Install python
-      apt:
-        name: python
-        state: latest 
-        force: yes
-        force_apt_get: yes
-        update_cache: yes
-
     - name: Install python3
       apt:
         name: python3
         state: latest 
         force: yes
         force_apt_get: yes
+        update_cache: yes
     
 
     - name: Install iptables
