@@ -11,6 +11,10 @@
         force: yes
         force_apt_get: yes
         update_cache: yes
+        
+    - name: install pip
+      apt:
+        name: python3-pip
     
 
     - name: Install iptables
@@ -43,13 +47,8 @@
     
 
     - name: Install Docker
-      package:
-        name: 
-          - docker-ce
-          - docker-ce-cli
-          - containerd.io
-        state: latest
-      become: yes
+      pip:
+        name: docker
 
     - name: Start Docker service
       service:
